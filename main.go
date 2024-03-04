@@ -3,7 +3,8 @@ package main
 import (
 	"gin-demo/src/config"
 	"gin-demo/src/database"
-	// "gin-demo/src/s3"
+	"gin-demo/src/endpoints"
+	"github.com/gin-gonic/gin"
 	"log"
 )
 
@@ -19,5 +20,8 @@ func main() {
 	// Perform database migrations
 	database.MigrateDB(db)
 
-	// minioClient := s3.NewMinioClient(settings)
+	// minioClient := s3.NewMinioClient(settings)	// Setup Gin
+	r := gin.Default()
+	endpoints.RegisterUserRoutes(r, db)
+	r.Run()
 }

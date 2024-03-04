@@ -1,7 +1,7 @@
 package database
 
 import (
-	"gin-demo/src/models" 
+	"gin-demo/src/models"
 	"gorm.io/gorm"
 	"log"
 )
@@ -15,4 +15,3 @@ func MigrateDB(db *gorm.DB) {
 		log.Fatalf("Failed to auto-migrate database schemas: %v", err)
 	}
 }
-
