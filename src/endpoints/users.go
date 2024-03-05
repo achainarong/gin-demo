@@ -19,6 +19,8 @@ func RegisterUserRoutes(r *gin.Engine, database *gorm.DB) {
 	r.DELETE("/users/:id", DeleteUser)
 }
 
+// TODO: Make this generic and use repository pattern
+
 func GetUserByID(c *gin.Context) {
 	var user models.User
 	if err := db.First(&user, c.Param("id")).Error; err != nil {
