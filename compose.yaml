@@ -24,7 +24,16 @@ services:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
 
+  pyroscope:
+    image: grafana/pyroscope
+    ports:
+      - "4040:4040"
+    volumes:
+      - pyroscope-data:/data
+    command:
+      - "server"
+
 volumes:
   minio_data:
   postgres_data:
-
+  pyroscope-data:

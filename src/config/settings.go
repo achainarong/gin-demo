@@ -18,6 +18,7 @@ type Settings struct {
 	MinioAccessKey    string `envconfig:"MINIO_ACCESS_KEY"`
 	MinioAccessSecret string `envconfig:"MINIO_ACCESS_SECRET"`
 	MinioHost         string `envconfig:"MINIO_HOST"`
+	PyroScopeHost     string `envconfig:"PYRO_SCOPE_HOST"`
 }
 
 func LoadSettings() *Settings {

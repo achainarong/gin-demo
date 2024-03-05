@@ -4,12 +4,14 @@ import (
 	"gin-demo/src/config"
 	"gin-demo/src/database"
 	"gin-demo/src/endpoints"
+	"gin-demo/src/utils"
 	"github.com/gin-gonic/gin"
 	"log"
 )
 
 func main() {
 	settings := config.LoadSettings()
+	utils.InitProfiler()
 
 	db, err := database.GetGormDB(settings)
 
