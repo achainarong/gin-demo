@@ -17,6 +17,9 @@ func main() {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
 
+	// Needs to be created to generate uuids
+	db.Exec("CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\"")
+
 	// Perform database migrations
 	database.MigrateDB(db)
 
